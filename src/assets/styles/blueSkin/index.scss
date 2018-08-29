@@ -1,0 +1,10 @@
+ /*蓝色主题皮肤*/
+.theme-blue {
+  background: #1d326b url(../images/body-bg.png) no-repeat;
+  background-size: cover;
+  .land-page-content { 
+    .content {
+      border: solid 1px #27539b;
+    }
+  }
+}
