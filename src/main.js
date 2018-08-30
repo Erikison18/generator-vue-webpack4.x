@@ -4,7 +4,7 @@
  * @Email: 991034150@qq.com 
  * @Description: 入口文件
  * @Last Modified by: zhanghongqiao
- * @Last Modified time: 2018-08-29 13:50:28
+ * @Last Modified time: 2018-08-30 17:11:10
  */
 
 import Vue from 'vue'
@@ -62,3 +62,8 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+// ================= 启用热加载=============
+if(module.hot) {
+  module.hot.accept()
+}

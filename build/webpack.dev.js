@@ -12,8 +12,9 @@ module.exports = merge(common, {
   entry: {
     main:[
     　　'webpack-hot-middleware/client', // 热加载
+        'webpack/hot/dev-server',
     　　'./src/main.js'
-    　　],
+    　],
     },
   mode: 'development', // 开发环境
   devtool: 'inline-source-map', // 原始源代码
@@ -54,8 +55,6 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       filename: 'index.html',  // 输出文件【注意：这里的根路径是module.exports.output.path】
       template: './src/index.html', // 源模板文件
-      favicon: './favicon.ico'
-
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
