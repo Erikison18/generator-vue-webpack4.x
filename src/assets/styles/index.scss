@@ -2,14 +2,8 @@
 @import "./reset";
 // 公用样式
 @import "./common";
-// 重置element样式
-@import "./element.new";
 // 常量
 @import "./constant.scss";
-/*蓝色皮肤*/
-@import "./blueSkin/index.scss";
-/*绿色皮肤*/
-@import "./greenSkin/index.scss";
 
 #app {
   position: relative;
@@ -17,49 +11,6 @@
   height: 100%;
 }
 
-/* 内容边框公用样式 */
-.land-page-content {
-  width: $w300;
-  position: relative;
-  padding: 0 0.1rem;
-  > span {
-    display:block;
-    width:8px;
-    height:9px;
-    position:absolute;
-    z-index:9;
-  }
-  .icon-lefttop {
-    background: url(../images/iconWhite-lefttop.png) no-repeat;
-    top: 0;
-    left: 0;
-  }
-  .icon-lefttop {
-    background:url(../images/iconWhite-lefttop.png) no-repeat;
-    top:0;
-    left:0;
-  }
-  .icon-leftbottom {
-    background:url(../images/iconWhite-leftbottom.png) no-repeat;
-    bottom:0;
-    left:0;
-  }
-  .icon-righttop {
-    background:url(../images/iconWhite-righttop.png) no-repeat;
-    top:0;
-    right:0;
-  }
-  .icon-rightbottom {
-    background:url(../images/iconWhite-rightbottom.png) no-repeat;
-    bottom:0;
-    right:0;
-  }
-  .content {
-    font-size: $fs12;
-    margin: 0 -0.1rem;
-    padding: 0 0.1rem;
-  }
-}
 
 .level-1bg{background:#6095d5;}
 .level-2bg{background:#c99f17;}

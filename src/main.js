@@ -13,7 +13,6 @@ import router from './router'
 import store from './store'
 import _ from 'lodash'
 import elementUI from 'element-ui'
-import $ from 'jquery'
 import './assets/styles/index.scss'
 
 // 渲染前处理(引入所有API)
@@ -27,24 +26,6 @@ preLoader.load({
   config: {},
   apis: mockAPI
 })
-
-// 修改页面标题
-let title = '蛙鸣科技 | '
-router.beforeEach((to, from, next) => {
-  document.title =  title + to.name;
-  next()
-})
-
-// 获取皮肤主题
-let theme = localStorage.getItem('theme')
-// 判断是否有设置默认皮肤(蓝色皮肤)
-if(!theme) {
-  localStorage.setItem('theme', 'blue')
-}else {
-  localStorage.setItem('theme', theme)
-}
-// 设置默认皮肤
-$('body').attr('class', `theme-${theme}`)
 
 
 // 注册elementUI

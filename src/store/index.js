@@ -10,11 +10,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import * as home from './homeModules' // 首页
 import * as common from './commonModules' // 公用
-import * as detectionMap from './detectionMapModules' // 检测地图
-import * as abnormalGrid from './pollutionSourceModules/abnormalGrid' // 异常网格
-import * as hotGrid from './pollutionSourceModules/hotGrid' // 热点网格
 
 const debug = process.env.NODE_ENV !== 'production'
 
@@ -35,10 +31,6 @@ Vue.use(Vuex)
  
 const modules = {
   common,
-  home,
-  detectionMap,
-  abnormalGrid,
-  hotGrid
 }
  
 // 注册Store
