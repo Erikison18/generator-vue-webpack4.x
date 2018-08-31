@@ -12,7 +12,6 @@ module.exports = merge(common, {
   entry: {
     main:[
     　　'webpack-hot-middleware/client', // 热加载
-        'webpack/hot/dev-server',
     　　'./src/main.js'
     　],
     },
