@@ -62,6 +62,19 @@ module.exports = merge(common, {
         ignore: ['.*']
       }
     ]),
+     // new webpack.DllReferencePlugin({
+    //   context: path.resolve(__dirname),
+    //   manifest: require('./vendors-manifest.json')
+    // }),
+    //这个主要是将生成的vendors.lib.js文件加上hash值插入到页面中。
+    // new AddAssetHtmlPlugin([{
+    //   filepath: path.resolve(__dirname, `./${config.build.outputPath}/static/scripts/vendor.dll.js`),
+    //   // filepath: path.resolve(__dirname,'../dist/static/scripts/vendor.dll.js'),
+    //   // outputPath: utils.assetsPath(`${config.build.outputPath}/scripts`),
+    //   // publicPath: config.build.assetsPublicPath,
+    //   includeSourcemap: false,
+    //   hash: true,
+    // }]),
     //打包
     new FileManagerPlugin({
       onEnd: {
