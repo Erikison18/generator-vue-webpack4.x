@@ -5,7 +5,8 @@ const compiler_vendors = [
   'lodash',
   'axios',
   'element-ui',
-  'echarts'
+  'echarts',
+  'jquery'
   // ...其它库
 ];
  
@@ -27,7 +28,7 @@ module.exports = {
     new webpack.DllPlugin({
       path: path.join(__dirname, '.', '[name]-manifest.json'),
       name: '[name]_library', 
-      context: __dirname
+      context: path.join(__dirname)
     }),
   ]
 };

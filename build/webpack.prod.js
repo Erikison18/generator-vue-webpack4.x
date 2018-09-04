@@ -14,6 +14,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 //打包
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
 module.exports = merge(common, {
   // 入口
@@ -26,12 +28,16 @@ module.exports = merge(common, {
   // 出口文件(js)
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[hash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[hash].js')
+    filename: utils.assetsPath('scripts/[name].[hash].js'),
+    chunkFilename: utils.assetsPath('scripts/[id].[hash].js')
   },
   plugins: [
     // 构建之前先清里dist文件
     new CleanWebpackPlugin([config.build.outputPath]),
+    new webpack.DllReferencePlugin({
+      context: path.resolve(__dirname),
+      manifest: require('./vendor-manifest.json')
+    }),
     new UglifyJSPlugin({
       sourceMap: true // 开启代码压缩
     }),
@@ -49,6 +55,7 @@ module.exports = merge(common, {
       },
       hash: true, // 是否为所有注入的静态资源添加webpack每次编译产生的唯一hash值
     }),
+
     // css分离
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[hash].css'),
@@ -62,19 +69,28 @@ module.exports = merge(common, {
         ignore: ['.*']
       }
     ]),
-     // new webpack.DllReferencePlugin({
-    //   context: path.resolve(__dirname),
-    //   manifest: require('./vendors-manifest.json')
-    // }),
-    //这个主要是将生成的vendors.lib.js文件加上hash值插入到页面中。
-    // new AddAssetHtmlPlugin([{
-    //   filepath: path.resolve(__dirname, `./${config.build.outputPath}/static/scripts/vendor.dll.js`),
-    //   // filepath: path.resolve(__dirname,'../dist/static/scripts/vendor.dll.js'),
-    //   // outputPath: utils.assetsPath(`${config.build.outputPath}/scripts`),
-    //   // publicPath: config.build.assetsPublicPath,
-    //   includeSourcemap: false,
-    //   hash: true,
-    // }]),
+   
+    // // 这个主要是将生成的vendors.lib.js文件加上hash值插入到页面中。
+    new HtmlIncludeAssetsPlugin({
+      assets: ['static/scripts/vendor.dll.js'],
+      append: false // false 在其他资源的之前添加 true 在其他资源之后添加
+    }),
+    new ParallelUglifyPlugin({
+      workerCount: 4,
+      uglifyJS: {
+        output: {
+          beautify: false, // 不需要格式化
+          comments: false // 保留注释
+        },
+        compress: { // 压缩
+          warnings: false, // 删除无用代码时不输出警告
+          drop_console: true, // 删除console语句
+          collapse_vars: true, // 内嵌定义了但是只有用到一次的变量
+          reduce_vars: true // 提取出出现多次但是没有定义成变量去引用的静态值
+        }
+      }
+    }),
+
     //打包
     new FileManagerPlugin({
       onEnd: {
@@ -82,7 +98,7 @@ module.exports = merge(common, {
           './build/wcenter-web.tar.gz'
         ],
         archive: [
-          {source: `./build/dist`, destination: './build/wcenter-web.tar.gz'}
+          { source: `./build/dist`, destination: './build/wcenter-web.tar.gz' }
         ]
       }
     })

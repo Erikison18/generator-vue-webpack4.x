@@ -2,7 +2,7 @@
 
 const path = require('path')
 //项目编译输出目录
-const outputPath = 'dist/wcenter-web'
+const outputPath = 'dist/wm'
 
 module.exports = {
   // 开发环境配置项
