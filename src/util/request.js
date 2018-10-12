@@ -4,7 +4,7 @@
  * @Email: 991034150@qq.com
  * @Description: 发送请求的方法集合
  * @Last Modified by: zhanghongqiao
- * @Last Modified time: 2018-10-12 10:01:44
+ * @Last Modified time: 2018-10-12 11:05:14
  */
 
 import axios from 'axios'
@@ -105,7 +105,7 @@ export function fetch (apiName, data = {}, callback) {
   })
   .catch(function (error) {
     console.log(error)
-    callback([])
+    callback('error')
   })
 }
 

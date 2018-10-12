@@ -3,7 +3,7 @@
  * @Date: 2018-05-29 21:07:35 
  * @Description: 路由配置
  * @Last Modified by: zhanghongqiao
- * @Last Modified time: 2018-10-12 10:06:36
+ * @Last Modified time: 2018-10-12 10:19:00
  */
 
 import Vue from 'vue'
