@@ -15,6 +15,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 //打包
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
+// 代码优化插件
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
 module.exports = merge(common, {

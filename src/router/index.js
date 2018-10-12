@@ -3,7 +3,7 @@
  * @Date: 2018-05-29 21:07:35 
  * @Description: 路由配置
  * @Last Modified by: zhanghongqiao
- * @Last Modified time: 2018-08-29 13:48:16
+ * @Last Modified time: 2018-10-12 10:06:36
  */
 
 import Vue from 'vue'
@@ -14,23 +14,23 @@ Vue.use(Router)
 const Login = () => import('@/containers/login/index.vue')
 // 首页
 const Home = () => import('@/containers/home/index.vue')
-
-
+// 配置项
+import config from '@/config/base.config'
 
 const routes = [
   {
     path: '*',
-    redirect: '/weather-web/airMonitoring/landingPage',
+    redirect: `${config.routerPath}/airMonitoring/landingPage`,
     component: Home // 首页
   },
   {
-    path: '/weather-web/login', // 登录
+    path: `${config.routerPath}/login`, // 登录
     name: '登录',
     components: {
       login: Login
     } 
   },{
-    path: '/weather-web/airMonitoring/landingPage',
+    path: `${config.routerPath}/airMonitoring/landingPage`,
     name: '首页',
     component: Home // 首页
   }

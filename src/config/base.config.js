@@ -4,7 +4,7 @@
  * @Email: 991034150@qq.com
  * @Description: 项目默认全局配置项
  * @Last Modified by: zhanghongqiao
- * @Last Modified time: 2018-08-07 16:56:23
+ * @Last Modified time: 2018-10-12 10:03:14
  */
 
 //  const search = global.location.search
@@ -33,6 +33,6 @@ export default {
   pageWidth: 1920,
   // 固定的页面高
   pageHeight: 1080,
-  // 地图路径
-  mapPath: '/weather-web/resources/js/airMonitoring/domainbounds/',
+  // 路由地址
+  routerPath: '/weather-web',
 }

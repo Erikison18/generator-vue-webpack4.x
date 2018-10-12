@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/dev-server.js",
-    "dll": "webpack -p --config build/webpack.dll.conf.js",
+    "dll": "webpack --config build/webpack.dll.conf.js --mode production",
     "build": "webpack --progress -p --config build/webpack.prod.js"
   },
   "author": "zhanghongqiao",
@@ -42,7 +42,7 @@
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
-    "filemanager-webpack-plugin": "^2.0.2",
+    "filemanager-webpack-plugin": "^2.0.4",
     "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.2",
