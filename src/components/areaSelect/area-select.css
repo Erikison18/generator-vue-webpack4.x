@@ -66,6 +66,7 @@ ul{
     height: 0.8rem;
     line-height: 0.8rem;
     float: left;
+    width: 100%;
 }
 .area-top-item{
     display: inline-block;
@@ -75,6 +76,7 @@ ul{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    float: left;
 }
 .area_top_active{
     color: #26a2ff;

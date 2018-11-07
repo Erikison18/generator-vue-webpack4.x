@@ -21,7 +21,7 @@
   <div class="weather-web-home">
      <area-select :data="areaList" :status="areaSelect" @areashow="maskStatus" :class="{'none':!areaSelect}" :area='areaStatus'
           :default="defaultValue"
-      @update:area="val => areaStatus = val"></area-select>
+          @update:area="val => areaStatus = val"></area-select>
   </div>
 </template>
 
